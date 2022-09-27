@@ -12,6 +12,7 @@
         <parameter name="username_u" value="tomsmith"></parameter>
         <parameter name="password_u" value="SuperSecretPassword!"></parameter>
         <parameter name="expectedUrl" value="http://the-internet.herokuapp.com/secure"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
             <class name="com.herokuapp.internet.LoginTest">
                 <methods>
@@ -22,29 +23,59 @@
         </classes>
     </test>
 
-    <test name="Negative Test Username" >
-        <parameter name="username_u" value="tomsmithx"></parameter>
-        <parameter name="password_u" value="SuperSecretPassword!"></parameter>
-        <parameter name="errorMessage_u" value="Your username is invalid!"></parameter>
+    <test name="Invalid Login Username" >
+        <parameter name="username" value="tomsmithx"></parameter>
+        <parameter name="password" value="SuperSecretPassword!"></parameter>
+        <parameter name="errorMessage" value="Your username is invalid!"></parameter>
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="com.herokuapp.internet.LoginTest">
                 <methods>
-                    <include name="usernameFailed"/>
+                    <include name="loginInvalid"/>
+
                 </methods>
             </class>
         </classes>
     </test>
 
-    <test name="Negative Test Password" >
-        <parameter name="username_p" value="tomsmith"></parameter>
-        <parameter name="password_p" value="SuperSecretPassword!!"></parameter>
-        <parameter name="errorMessage_p" value="Your password is invalid!"></parameter>
+    <test name="Invalid Login Password" >
+        <parameter name="username" value="tomsmith"></parameter>
+        <parameter name="password" value="SuperSecretPassword!!"></parameter>
+        <parameter name="errorMessage" value="Your password is invalid!"></parameter>
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
             <class name="com.herokuapp.internet.LoginTest">
                 <methods>
-                    <include name="passwordFailed"/>
+                    <include name="loginInvalid"/>
+
                 </methods>
             </class>
         </classes>
     </test>
+
+<!--    <test name="Negative Test Username" >-->
+<!--        <parameter name="username_u" value="tomsmithx"></parameter>-->
+<!--        <parameter name="password_u" value="SuperSecretPassword!"></parameter>-->
+<!--        <parameter name="errorMessage_u" value="Your username is invalid!"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.herokuapp.internet.LoginTest">-->
+<!--                <methods>-->
+<!--                    <include name="usernameFailed"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Negative Test Password" >-->
+<!--        <parameter name="username_p" value="tomsmith"></parameter>-->
+<!--        <parameter name="password_p" value="SuperSecretPassword!!"></parameter>-->
+<!--        <parameter name="errorMessage_p" value="Your password is invalid!"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.herokuapp.internet.LoginTest">-->
+<!--                <methods>-->
+<!--                    <include name="passwordFailed"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
