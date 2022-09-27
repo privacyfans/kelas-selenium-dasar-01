@@ -1,0 +1,50 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Login Test" verbose="1" >
+
+    <!--    <groups>-->
+    <!--        <run>-->
+    <!--            <include name="negativeTest"/>-->
+    <!--        </run>-->
+    <!--    </groups>-->
+
+    <test name="Positive Test" >
+        <parameter name="username_u" value="tomsmith"></parameter>
+        <parameter name="password_u" value="SuperSecretPassword!"></parameter>
+        <parameter name="expectedUrl" value="http://the-internet.herokuapp.com/secure"></parameter>
+        <classes>
+            <class name="com.herokuapp.internet.LoginTest">
+                <methods>
+                    <include name="loginSuccess"/>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Negative Test Username" >
+        <parameter name="username_u" value="tomsmithx"></parameter>
+        <parameter name="password_u" value="SuperSecretPassword!"></parameter>
+        <parameter name="errorMessage_u" value="Your username is invalid!"></parameter>
+        <classes>
+            <class name="com.herokuapp.internet.LoginTest">
+                <methods>
+                    <include name="usernameFailed"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Negative Test Password" >
+        <parameter name="username_p" value="tomsmith"></parameter>
+        <parameter name="password_p" value="SuperSecretPassword!!"></parameter>
+        <parameter name="errorMessage_p" value="Your password is invalid!"></parameter>
+        <classes>
+            <class name="com.herokuapp.internet.LoginTest">
+                <methods>
+                    <include name="passwordFailed"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
