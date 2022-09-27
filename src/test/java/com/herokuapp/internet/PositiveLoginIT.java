@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PositiveLogin {
+public class PositiveLoginIT {
     @Test
     public void loginSuccess(){
         // create driver
